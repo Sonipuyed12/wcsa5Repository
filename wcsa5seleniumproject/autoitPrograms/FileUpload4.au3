@@ -1,0 +1,6 @@
+ControlFocus("Open","" ,"Edit1")
+Sleep(2000)
+ControlSetText("open","","Edit1","C:\Users\puyed\OneDrive\Desktop\wcsa5\New Text Document.txt")
+Sleep(2000)
+ControlFocus("Open","","Button1")
+ControlClick("Open","","Button1")
