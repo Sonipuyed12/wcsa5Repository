@@ -8,7 +8,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-public class BaseTest extends Flib 
+public class BaseTest extends Flib implements IautoConstant
 
 {
 	
@@ -21,15 +21,15 @@ public class BaseTest extends Flib
 		Flib flib = new Flib();
 		
 		//using readproprty mrthod no need to implement the each componanat just call the method
-		String browserValue = flib.readPropertyData("./data/config.properties","Browser");//config.properties file main browser ki value chrome se save ki hain so chrome open hoga agar hamane edge se save kiya hota to edge hoga open
-		String url = flib.readPropertyData("./data/config.properties","Url");//yaha hamne actitime ka url dala hain to actime open hoga
+		String browserValue = flib.readPropertyData(PROP_PATH,"Browser");//config.properties file main browser ki value chrome se save ki hain so chrome open hoga agar hamane edge se save kiya hota to edge hoga open
+		String url = flib.readPropertyData(PROP_PATH,"Url");//yaha hamne actitime ka url dala hain to actime open hoga
 
 		
 		Thread.sleep(2000);
 
 		if(browserValue.equalsIgnoreCase("chrome"))
 		{
-			System.setProperty("webdriver.chrome.driver","./drivers/chromedriver.exe");
+			System.setProperty(CHROME_PATH,CHROME_KEY);
 			driver = new ChromeDriver();
 			driver.manage().window().maximize();
 			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
@@ -38,7 +38,7 @@ public class BaseTest extends Flib
 		else if(browserValue.equalsIgnoreCase("firefox"))
 		{
 
-			System.setProperty("webdriver.gecko.driver","./drivers/geckodriver.exe");
+			System.setProperty(GECKO_PATH,GECKO_KEY);
 			driver = new FirefoxDriver();
 			driver.manage().window().maximize();
 			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
@@ -48,7 +48,7 @@ public class BaseTest extends Flib
 
 		else if(browserValue.equalsIgnoreCase("edge"))
 		{
-			System.setProperty("webdriver.edge.driver","./drivers/msedgedriver.exe");
+			System.setProperty(EDGE_PATH,EDGE_KEY);
 			driver = new EdgeDriver();
 			driver.manage().window().maximize();
 			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));

@@ -19,7 +19,7 @@ public class ToSelectDropDown {
 	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
 	
 	//using single select dropdown
-	driver.get("file:///C:/Users/puyed/OneDrive/Desktop/wcsa5/WebElement/SingleSelectDropdown.html");
+	driver.get("file:///D:/wcsa5/WebElement/SingleSelectDropdown.html");
 	
 	//identify dropdown on webpage
 	WebElement dropdownelement = driver.findElement(By.id ("menu"));
@@ -29,23 +29,23 @@ public class ToSelectDropDown {
 	//select the option from dropdown
 	//use selection methods
 	
-	//Thread.sleep(2000);
-	//sel.selectByIndex(2);//from single select dropdown
+	Thread.sleep(2000);
+	sel.selectByIndex(2);//from single select dropdown
 	
 	//read all options of dropdown
-     List<WebElement> alloptions = sel.getOptions();//the returntype of getoptions is list<webelement>
-     
-     //to read list use looping statement
-     
-     for(WebElement op:alloptions)
-    {
-    	 if(op.getText().equals("pani puri"))
-    		 
-    	 {
-    		 Thread.sleep(2000);
-    		 op.click();
-    		 break;
-    	 }
+//     List<WebElement> alloptions = sel.getOptions();//the returntype of getoptions is list<webelement>
+//     
+//     //to read list use looping statement
+//     
+//     for(WebElement op:alloptions)
+//    {
+//    	 if(op.getText().equals("pani puri"))
+//    		 
+//    	 {
+//    		 Thread.sleep(2000);
+//    		 op.click();
+//    		 break;
+//    	 }
     	 
     	 
     	 
@@ -61,4 +61,4 @@ public class ToSelectDropDown {
 	
 	}
 
-}
+//}

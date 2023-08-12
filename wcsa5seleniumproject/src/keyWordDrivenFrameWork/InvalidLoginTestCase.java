@@ -15,20 +15,20 @@ public class InvalidLoginTestCase extends BaseTest {
 
 		// use to get last row cont
 
-		int rc = flib.getLastRowCount("./data/ActiTimeTestdata.xlsx","invalidcreads");
+		int rc = flib.getLastRowCount(EXCEL_PATH,"invalidcreads");
 		
 		for(int i=1;i<=rc;i++)
 		{
 
-		driver.findElement(By.name("username")).sendKeys(flib.readExcelData("./data/ActiTimeTestdata.xlsx", "invalidcreads", i, 0));
+		driver.findElement(By.name("username")).sendKeys(flib.readExcelData(EXCEL_PATH, "invalidcreads", i, 0));
 		Thread.sleep(2000);
-		driver.findElement(By.name("pwd")).sendKeys(flib.readExcelData("./data/ActiTimeTestdata.xlsx", "invalidcreads", i, 1));
+		driver.findElement(By.name("pwd")).sendKeys(flib.readExcelData(EXCEL_PATH, "invalidcreads", i, 1));
 		Thread.sleep(2000);
 		driver.findElement(By.id("loginbutton")).click();
 		Thread.sleep(2000);
 		driver.findElement(By.name("username")).clear();
 
 	}
-
+   bt.closeBrowser();
 	}
 }
